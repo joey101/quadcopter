@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/lobodol/ESC-calibration.svg?branch=master)](https://travis-ci.org/lobodol/ESC-calibration)
-
+Disclaimer: This is not my work found online -> https://github.com/lobodol/ESC-calibration  
 # 1. Introduction
 This project provides an Arduino sketch to calibrate up to 4 Electrical Speed Controllers (ESC) at the same time. Feel free to update this sketch if you need to calibrate more than 4 ESCs.
 
