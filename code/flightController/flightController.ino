@@ -12,12 +12,32 @@ void setup() {
   
   
   
-  
-  
 }
-
 
 void loop() {
   
   
 }
+
+void goUp() {
+  
+  
+}
+
+void goDown() {
+  
+  
+}
+
+void goLeft() {
+  
+  
+}
+
+void goRight() {
+  
+  
+}
+
+
+
