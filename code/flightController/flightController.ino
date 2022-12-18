@@ -11,6 +11,7 @@ Servo motTopLeft, motTopRight, motBotLeft, motBotRight;
 // Customize here pulse lengths as needed
 #define MIN_PULSE_LENGTH 1000 // Minimum pulse length in µs
 #define MAX_PULSE_LENGTH 2000 // Maximum pulse length in µs
+#define EPSILON 0.01
 
 void setup() {
 	Serial.begin(9600);
