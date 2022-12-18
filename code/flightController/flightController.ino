@@ -4,8 +4,9 @@
 #include <Servo.h>
 #include <tuple>
 
-// Initialising object
+// Initialising objects
 Adafruit_MPU6050 mpu;
+Servo motTopLeft, motTopRight, motBotLeft, motBotRight;
 
 // Customize here pulse lengths as needed
 #define MIN_PULSE_LENGTH 1000 // Minimum pulse length in µs
@@ -27,10 +28,10 @@ void setup() {
 	}
 	Serial.println("--------------MPU 6050 Begin-------------");
 	
-	motA.attach(4, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
-    motB.attach(5, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
-    motC.attach(6, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
-    motD.attach(7, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
+	motTopLeft.attach(4, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
+    motTopRight.attach(5, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
+    motBotLeft.attach(6, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
+    motBotRight.attach(7, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
 	
 	Serial.println("--------------Drone Bitch-------------");
  
