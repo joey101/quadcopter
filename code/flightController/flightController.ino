@@ -16,7 +16,8 @@ void setup() {
 	while (!Serial) {
 		delay(10); // will pause Zero until serial console opens.
 	}
-
+	Serial.println("--------------Serial Monitor Begin-------------");
+	
 	// Try to initialize GYRO
 	if (!mpu.begin()) {
 		Serial.println("Failed to find MPU6050 chip");
@@ -24,8 +25,13 @@ void setup() {
 			delay(10);
 		}
 	}
-	Serial.println("--------------Serial Monitor Begin-------------");
 	Serial.println("--------------MPU 6050 Begin-------------");
+	
+	motA.attach(4, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
+    motB.attach(5, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
+    motC.attach(6, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
+    motD.attach(7, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
+	
 	Serial.println("--------------Drone Bitch-------------");
  
 }
