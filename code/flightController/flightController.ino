@@ -65,6 +65,7 @@ void loop() {
 			case 97:
 				goLeft(MID_PULSE_LENGTH);
 			case default:
+				/*levelDrone();*/
 				Serial.println("Invalid Input!");
 
 		}	
@@ -92,6 +93,16 @@ std::tuple<double, double, double> getLevel() {
 
 	return std::tuple<double,double,double>{x,y,z};
 }
+/*
+void levelDrone() {
+	std::tuple level<double,double,double>{0.0,0.0,0.0};
+	
+	while((getLevel() - level) > 0.1) {
+		
+	}
+	
+}
+*/
 
 void goUp(int amount) { 
 	motTopLeft.writeMicroseconds(amount);
