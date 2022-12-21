@@ -37,8 +37,38 @@ void setup() {
 	Serial.println("--------------Drone Bitch-------------");
  
 }
+void printInstructions() {
+	Serial.println("Press [w] for Up.");
+	Serial.println("Press [a] for Left.");
+	Serial.println("Press [s] for Down.");
+	Serial.println("Press [d] for Right.");
+	Serial.println("Press [f] for Forward.");
+	Serial.println("Press [b] for Backward.");
 
-void loop() { /* Still to do */ }
+}
+void loop() { 
+	if (Serial.available()) {
+		data = Serial.read();
+
+		switch (data) {
+			case 119:
+				goUp();
+			case 115:
+				goDown();
+			case 102:
+				goForward();
+			case 98:
+				goBackward();
+			case 100:
+				goRight();
+			case 97:
+				goLeft();
+			case default:
+				Serial.println("Invalid Input!");
+
+		}	
+	
+}
 
 std::tuple<double, double, double> getLevel() { 
 	sensors_event_t g;
@@ -75,9 +105,11 @@ void goDown() {
 	motBotLeft.writeMicroseconds(MIN_PULSE_LENGTH);
 	motBotRight.writeMicroseconds(MIN_PULSE_LENGTH);
 }
-
-void goLeft() { /* Still to do */ }
-void goRight() { /* Still to do */ }
+	
+void goForward(int amount) { /* Still to do */ }
+void goBackward(int amount) { /* Still to do */ }
+void goLeft(int amount) { /* Still to do */ }
+void goRight(int amount) { /* Still to do */ }
 
 
 
