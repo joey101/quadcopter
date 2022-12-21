@@ -30,4 +30,7 @@ in one address. Disclaimer i forgot what the data sheet says this is just an exa
 
 Now moving on, Once i got to that, it all failed so I just went back to the 6050 library, because like sack that effort why reinvent the wheel, I will learn to 
 communicate with a device and its datasheet when I need to. As I was saying, moving on to the ESC, OH BOY DID THIS do my head in, you see curiosity killed the cat in this 
-sense, being exposed to datasheets, and having the mindset that when you see a chip, either find the library online or read a data sheet
+sense, being exposed to datasheets, and having the mindset that when you see a chip, either find the library online or read a data sheet confused me for the ESC.
+I looked, and looked, and wondered and had NO Bloody clue how to code this shit, I found a data sheet, did not know how to understand it, or use it to code. 
+Then I was just lazily searched how to code an ESC (DO NOT ask me why i did not lead with a google search like this). AND VOILA found the answer on this GITHUB, 
+https://github.com/lobodol/ESC-calibration   oh mate once I hooked up one motor and use this code, I almost orgasmed at the fact that it worked.
