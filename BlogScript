@@ -34,3 +34,15 @@ sense, being exposed to datasheets, and having the mindset that when you see a c
 I looked, and looked, and wondered and had NO Bloody clue how to code this shit, I found a data sheet, did not know how to understand it, or use it to code. 
 Then I was just lazily searched how to code an ESC (DO NOT ask me why i did not lead with a google search like this). AND VOILA found the answer on this GITHUB, 
 https://github.com/lobodol/ESC-calibration   oh mate once I hooked up one motor and use this code, I almost orgasmed at the fact that it worked.
+
+Now why did it work some may ask, well down I went a rabbit hole of trying to understand, an ESC, coding it and controlling motors. TLDR ESC all have standard firmware on 
+them and the firmware translates known protocols for communciating to them into signals for the motor to turn, example PWM, Dshot, etc these are all different ways of sending
+signals to the motor through the ESC and the esc just knows how to convert them and talk to the motor. And thankfully ESC's accept PWM which an arduino alraedy has a library
+for. What's PWM? well, go google because sack trying to explain, it isn't that hard to understand.
+
+
+
+
+
+
+
