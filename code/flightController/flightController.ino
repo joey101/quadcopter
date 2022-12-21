@@ -62,8 +62,20 @@ std::tuple<double, double, double> getLevel() {
 	return std::tuple<double,double,double>{x,y,z};
 }
 
-void goUp() { /* Still to do */  }
-void goDown() { /* Still to do */ }
+void goUp(int amount) { 
+	motTopLeft.writeMicroseconds(amount);
+	motTopRight.writeMicroseconds(amount);
+	motBotLeft.writeMicroseconds(amount);
+	motBotRight.writeMicroseconds(amount);
+}
+
+void goDown() { 
+	motTopLeft.writeMicroseconds(MIN_PULSE_LENGTH);
+	motTopRight.writeMicroseconds(MIN_PULSE_LENGTH);
+	motBotLeft.writeMicroseconds(MIN_PULSE_LENGTH);
+	motBotRight.writeMicroseconds(MIN_PULSE_LENGTH);
+}
+
 void goLeft() { /* Still to do */ }
 void goRight() { /* Still to do */ }
 
