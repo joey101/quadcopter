@@ -11,6 +11,7 @@ Servo motTopLeft, motTopRight, motBotLeft, motBotRight;
 // Customize here pulse lengths as needed
 #define MIN_PULSE_LENGTH 1000 // Minimum pulse length in µs
 #define MAX_PULSE_LENGTH 2000 // Maximum pulse length in µs
+#define MID_PULSE_LENGTH 1500 // Middle pulse length in µs
 #define EPSILON 0.01
 
 void setup() {
@@ -52,17 +53,17 @@ void loop() {
 
 		switch (data) {
 			case 119:
-				goUp();
+				goUp(MID_PULSE_LENGTH);
 			case 115:
 				goDown();
 			case 102:
-				goForward();
+				goForward(MID_PULSE_LENGTH);
 			case 98:
-				goBackward();
+				goBackward(MID_PULSE_LENGTH);
 			case 100:
-				goRight();
+				goRight(MID_PULSE_LENGTH);
 			case 97:
-				goLeft();
+				goLeft(MID_PULSE_LENGTH);
 			case default:
 				Serial.println("Invalid Input!");
 
@@ -106,10 +107,34 @@ void goDown() {
 	motBotRight.writeMicroseconds(MIN_PULSE_LENGTH);
 }
 	
-void goForward(int amount) { /* Still to do */ }
-void goBackward(int amount) { /* Still to do */ }
-void goLeft(int amount) { /* Still to do */ }
-void goRight(int amount) { /* Still to do */ }
+void goForward(int amount) { 
+	motTopLeft.writeMicroseconds(MID_PULSE_LENGTH);
+	motTopRight.writeMicroseconds(MID_PULSE_LENGTH);
+	motBotLeft.writeMicroseconds(MAX_PULSE_LENGTH);
+	motBotRight.writeMicroseconds(MAX_PULSE_LENGTH);
+}
+	
+void goBackward(int amount) {
+	motTopLeft.writeMicroseconds(MAX_PULSE_LENGTH);
+	motTopRight.writeMicroseconds(MAX_PULSE_LENGTH);
+	motBotLeft.writeMicroseconds(MID_PULSE_LENGTH);
+	motBotRight.writeMicroseconds(MID_PULSE_LENGTH);
+}
+	
+void goLeft(int amount) {
+	motTopLeft.writeMicroseconds(MAX_PULSE_LENGTH);
+	motTopRight.writeMicroseconds(MID_PULSE_LENGTH);
+	motBotLeft.writeMicroseconds(MAX_PULSE_LENGTH);
+	motBotRight.writeMicroseconds(MID_PULSE_LENGTH);
+}
+	
+void goRight(int amount) { 
+	motTopLeft.writeMicroseconds(MID_PULSE_LENGTH);
+	motTopRight.writeMicroseconds(MAX_PULSE_LENGTH);
+	motBotLeft.writeMicroseconds(MID_PULSE_LENGTH);
+	motBotRight.writeMicroseconds(MAX_PULSE_LENGTH);
+	
+}
 
 
 
