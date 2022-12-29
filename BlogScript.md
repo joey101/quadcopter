@@ -1,8 +1,8 @@
 Helloooooooo and "wElCoMe tO mY yOuTuBe cHaNnEl",
 
 
-alright alright so, I started this project in 29 Jan 2022 lol, but like if you want king of procastination this was it. I had no idea 
-what I was doing, and let me be real i barely actually worked on it, ijust kept saying I would.
+Alright alright so, I started this project in 29 Jan 2022 lol, but like if you want king of procastination this was it. I had no idea 
+what I was doing, and let me be real i barely actually worked on it, I just kept saying I would.
 
 So just one day i sat down like an NPC following a youtube drone design, spent 3 days doing it, realised I couldn't even manufacture it lol,
 showed it off on my instagram then basically sacked off the design. Then I went and said lets just do the dumbest, most simplest design and bam got something printed.
