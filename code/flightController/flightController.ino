@@ -14,6 +14,14 @@ Servo motTopLeft, motTopRight, motBotLeft, motBotRight;
 #define MID_PULSE_LENGTH 1500 // Middle pulse length in µs
 #define EPSILON 0.01
 
+void setpower(float f) {
+        motTopRight.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
+        motTopLeft.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
+        motBotLeft.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
+        motBotRight.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
+}
+
+
 void setup() {
 	Serial.begin(9600);
 	while (!Serial) {
@@ -29,12 +37,25 @@ void setup() {
 		}
 	}
 	Serial.println("--------------MPU 6050 Begin-------------");
-	
+		
 	motTopLeft.attach(4, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
     motTopRight.attach(5, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
     motBotLeft.attach(6, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
     motBotRight.attach(7, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
 	
+	while (1) {
+      Serial.println("Input 1 to activate ESC's. \n");
+      float f = Serial.parseFloat(SKIP_ALL, '\n');
+      if (f  == 1.0) {
+        break;
+      }      
+    }
+    setpower(0);
+    delay(7000);
+    setpower(1);
+    delay(3000);
+    setpower(0);
+
 	Serial.println("--------------Drone Bitch-------------");
  
 }
@@ -47,6 +68,7 @@ void printInstructions() {
 	Serial.println("Press [b] for Backward.");
 
 }
+
 void loop() { 
 	if (Serial.available()) {
 		data = Serial.read();

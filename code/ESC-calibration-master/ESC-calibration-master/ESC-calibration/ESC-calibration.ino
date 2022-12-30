@@ -21,6 +21,11 @@ Servo motA;//, motB, motC, motD;
 char data;
 // ---------------------------------------------------------------------------
 
+void setpower(float f) {
+        motA.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
+}
+
+
 /**
  * Initialisation routine
  */
@@ -31,17 +36,45 @@ void setup() {
     //motB.attach(5, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
     //motC.attach(6, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
     //motD.attach(7, MIN_PULSE_LENGTH, MAX_PULSE_LENGTH);
+    while (1) {
+      float f = Serial.parseFloat(SKIP_ALL, '\n');
+      if (f  == 1.0) {
+        break;
+      }      
+    }
+    setpower(0);
+    delay(7000);
+    setpower(1);
+    delay(3000);
+    setpower(0);
     
-    displayInstructions();
+
+    //displayInstructions();
 }
+
 
 /**
  * Main function
  */
-void loop() {
-    if (Serial.available()) {
-        data = Serial.read();
+void loop(){
+  float f = analogRead(A0);
+  float pow = (f / 1023);
+  Serial.println(pow);
+  setpower(pow);
+  delay(100);  
+}
 
+void oldloop() {
+    if (Serial.available()) {
+        float f = Serial.parseFloat(SKIP_ALL, '\n');
+        Serial.println(f);
+        if (f < 0 || f > 1) {
+          return;
+        }
+
+        motA.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
+
+        return;
         switch (data) {
             // 0
             case 48 : Serial.println("Sending minimum throttle");
