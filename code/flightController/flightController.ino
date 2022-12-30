@@ -15,10 +15,10 @@ Servo motTopLeft, motTopRight, motBotLeft, motBotRight;
 #define EPSILON 0.01
 
 void setpower(float f) {
-        motTopRight.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
-        motTopLeft.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
-        motBotLeft.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
-        motBotRight.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
+    motTopRight.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
+    motTopLeft.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
+    motBotLeft.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
+    motBotRight.writeMicroseconds(MIN_PULSE_LENGTH + (f * 1000));
 }
 
 
@@ -59,6 +59,7 @@ void setup() {
 	Serial.println("--------------Drone Bitch-------------");
  
 }
+
 void printInstructions() {
 	Serial.println("Press [w] for Up.");
 	Serial.println("Press [a] for Left.");
